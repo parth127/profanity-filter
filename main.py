@@ -16,8 +16,8 @@ def user():
     #print(final_url)
     #print(postID)
     scrapper_obj = FaceBookBot()
-    #final = scrapper_obj.post_content("4948996235154195",final_url)
-    final = "The Vargo 52 Assault Rifle is now available to unlock in MP & Zombies in Black Ops Cold War, and also available as a Reactive Mastercraft via Store Bundle.   We’ll need to delay the release of the WMD map until a future update. Thanks for your patience, and stay tuned fuckers for updates"
+    final = scrapper_obj.post_content("4948996235154195",final_url)
+    #final = "The Vargo 52 Assault Rifle is now available to unlock in MP & Zombies in Black Ops Cold War, and also available as a Reactive Mastercraft via Store Bundle.   We’ll need to delay the release of the WMD map until a future update. Thanks for your patience, and stay tuned fuckers for updates"
     # print(final)
     detection_obj = detection()
     result = detection.profanity(final)
