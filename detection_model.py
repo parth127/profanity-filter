@@ -119,7 +119,7 @@ class detection():
 
             profanity_filter = ProfanityFilter(nlps={'en': nlp})
             nlp.add_pipe(profanity_filter.spacy_component, last=True)
-
+            counter = 0
             doc = nlp(text)
             doc._.is_profane      
             for token in doc:
@@ -127,12 +127,19 @@ class detection():
                   censored.append(token._.censored)
                   profane.append(token._.is_profane)
                   original_profane.append(token._.original_profane_word)
-          
-            return (f'{token}: '
-                        f'censored={censored}, '
-                        "\n"f'is_profane={profane}, '
-                        f'original_profane_word={original_profane}'    
-                  )        
+            for i in profane:
+                  print(i)
+                  if i == True:
+                        return True
+                  else:
+                        counter += 1
+            if counter > 0:
+                  return False            
+            # return (f'{token}: '
+            #             f'censored={censored}, '
+            #             "\n"f'is_profane={profane}, '
+            #             f'original_profane_word={original_profane}'    
+            #       )        
                   #  return (f'{token}: '
                   #       f'censored={token._.censored}, '
                   #       "\n"f'is_profane={token._.is_profane}, '
